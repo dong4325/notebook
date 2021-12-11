@@ -10,6 +10,10 @@ tags: Git
 
 [TOC]
 
+fetch可参考：https://blog.csdn.net/qq_42780289/article/details/98049574
+
+在线书籍：http://iissnan.com/progit/?spm=5176.100239.blogcont5843.18.nUJDcK
+
 #### 专有名词
 
 > - Workspace：工作区
@@ -124,7 +128,7 @@ git checkout [branch-name]
 git checkout -
 
 # 建立追踪关系，在现有分支与指定的远程分支之间
-git branch --set-upstream [branch] [remote-branch]
+git branch --set-upstream-to origin/remote_branch branch
 
 # 合并指定分支到当前分支
 git merge [branch]
@@ -248,14 +252,20 @@ git remote -v
 # 显示某个远程仓库的信息
 git remote show [remote]
 
-# 增加一个新的远程仓库，并命名
+# 增加一个新的远程仓库，一般用origin命名
 git remote add [shortname] [url]
+
+#修改
+git remote set-url [shortname] [url]
 
 # 取回远程仓库的变化，并与本地分支合并
 git pull [remote] [branch]
 
 # 上传本地指定分支到远程仓库
 git push [remote] [branch]
+
+#推送本地分支到远程分支，远程没有会自动创建，git push -u origin master
+git push -u [remote] [branch]
 
 # 强行推送当前分支到远程仓库，即使有冲突
 git push [remote] --force
@@ -280,7 +290,9 @@ git checkout .
 git reset [file]
 
 # 重置暂存区与工作区，与上一次commit保持一致
+# hard不保留所有变更，soft保留变更，且变更内容且变更属于Staged，mixed保留变更且变更内容处于modified
 git reset --hard
+
 
 # 重置当前分支的指针为指定commit，同时重置暂存区，但工作区不变
 git reset [commit]
@@ -296,6 +308,7 @@ git reset --keep [commit]
 git revert [commit]
 
 # 暂时将未提交的变化移除，稍后再移入
+# 项目完成一半，要更改紧急bug时使用，在错误的分支上修炼了代码时也可使用。
 git stash
 git stash pop
 ```

@@ -189,8 +189,8 @@ scope：指对象的作用范围，取值如下：
     Bean的实例化个数：多个
     Bean的实例化时机：当调用getBean()方法时实例化Bean
     - 对象创建：当使用对象时，创建新的对象实例
-    - 对象运行：只要对象在使用中，就一直活着
-    - 对象销毁：当对象长时间不用时，被Java 的垃圾回收器回收了
+        - 对象运行：只要对象在使用中，就一直活着
+        - 对象销毁：当对象长时间不用时，被Java 的垃圾回收器回收了
 
 #### 3.3 Bean生命周期配置
 - init-method：指定类中的初始化方法名称
@@ -298,7 +298,8 @@ public class UserServiceImplimplements UserService{
     public void setUserDao(UserDaouserDao) {
         this.userDao= userDao;
     }
-    @Overridepublic void save() {
+    @Override
+    public void save() {
         userDao.save();
     }
 }
@@ -438,6 +439,7 @@ public class UserDaoImpl implements UserDao {
 ```
 
 4）集合数据类型（Map<String,User>）的注入
+
 ```java
 public class UserDaoImpl implements UserDao {
     private Map<String,User> userMap;

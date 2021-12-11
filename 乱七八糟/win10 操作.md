@@ -14,5 +14,20 @@ tags:
 
 1. 打开C:\Users\Yourname\AppData\Roaming\Microsoft\Windows\Start Menu
 2. 将快捷方式拷贝到该文件夹下面。就可以在开始菜单中找到你所拷贝的快捷方式了。
-     
+   
+
+
+
+## 关闭端口占用进程
+
+```cmd
+# 查找端口占用进程
+netstat -ano|findstr "8080"
+
+# 2.通过进程ID查找进程名
+tasklist |findstr "15036"
+
+# 3.杀死进程（指定进程ID或进程名）
+taskkill /f /t /im 15036
+```
 
