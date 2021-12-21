@@ -38,9 +38,20 @@ docker run [OPTIONS] IMAGE [COMMAND] [ARG...]
 
 # -d：后台运行
 # --restart=always: 开机自启
-docker run --name=mynginx   -d  --restart=always -p  88:80   nginx
+docker run --name=mynginx -d --restart=always -p 88:80 nginx
+docker run -it --rm tomcat:9.0
+```
 
 
+
+| **Options** | **Mean**                                                     |
+| ----------- | ------------------------------------------------------------ |
+| -i          | 以交互模式运行容器，通常与 -t 同时使用；                     |
+| -t          | 为容器重新分配一个伪输入终端，通常与 -i 同时使用；           |
+| -d          | 后台运行容器，并返回容器ID；                                 |
+| --rm        | 等价于在在容器退出后，执行docker rm -v，即只短期运行<br /> --rm 不能与-d同时使用。 |
+
+```bash
 # 查看正在运行的容器
 docker ps
 # 查看所有

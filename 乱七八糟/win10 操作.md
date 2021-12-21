@@ -31,3 +31,10 @@ tasklist |findstr "15036"
 taskkill /f /t /im 15036
 ```
 
+#### 查看局域网内正在使用的ip
+
+```cmd
+for /L %i IN (1,1,254) DO ping -w 2 -n 1 10.6.211.%i
+arp -a
+```
+
